@@ -11,7 +11,7 @@ $keywords = $argv[1];
 //Check if query has car year.
 //If positive the proper filters are applied 
 //in column year_from & year_to
-if(preg_match('/\b\d{4}\b/', $keywords, $year_match)) {
+if(preg_match('/(19|20)\d{2}/', $keywords, $year_match)) {
     $year = $year_match[0];
     $sphinx->setFilterRange('year_from', $year, 9999, false);
     $sphinx->setFilterRange('year_to', 0, $year, false);
@@ -22,8 +22,6 @@ if(preg_match('/\b\d{4}\b/', $keywords, $year_match)) {
 
 $sphinx->setLimits(0, 5);
 $result = $sphinx->query($keywords);
-
-//var_dump($result);
 
 if ( $result === false ) {
   echo "Query failed: " . $sphinx->GetLastError() . ".\n";
