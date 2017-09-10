@@ -1,0 +1,18 @@
+SELECT 
+versions.id,
+makes.name as make,
+models.name as model,
+versions.name as version,
+versions.engine_capacity,
+versions.year_from,
+versions.year_to,
+fuel_types.name as fuel_type,
+CONCAT(versions.power_kw, 'KW / ', versions.power_hp, 'CV') as power,
+CONCAT('C.Motor: ',engine_codes.name) as engine_codes
+
+FROM versions
+
+LEFT JOIN models ON versions.model_id = models.id
+LEFT JOIN makes ON models.make_id = makes.id
+LEFT JOIN fuel_types ON versions.fuel_type_id = fuel_types.id
+LEFT JOIN engine_codes ON versions.id = engine_codes.version_id
