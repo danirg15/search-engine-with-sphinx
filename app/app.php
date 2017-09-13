@@ -18,7 +18,7 @@ if(preg_match('/(19|20)\d{2}/', $keywords, $year_match)) {
     //1st Step: Select between range: 0 >= year_from <= $year
     $sphinx->setFilterRange('year_from', 0, $year, false);
     //2st Step: Select over the matches above the range: $year >= year_to <= 9999
-    //Important Note: This requires to set 'year_to' value to 9999 when the field is zero.
+    //Important Note: This requires to set 'year_to' value to 9999 in data when the field is zero.
     $sphinx->setFilterRange('year_to', $year, 9999, false);
 
     //Remove year from query to avoid noise of year value
