@@ -29,3 +29,6 @@ service mysql restart
 
 mysql -u root -proot -e "CREATE DATABASE tecdoc_vehicles"
 mysql -u root -proot tecdoc_vehicles < /vagrant/seed/tecdoc_vehicles.sql
+
+mysql -u root -proot -e "CREATE DATABASE articles"
+mysql -u root -proot articles < /vagrant/seed/articles.sql
