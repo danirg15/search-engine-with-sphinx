@@ -1,0 +1,26 @@
+https://www.jamescoyle.net/how-to/1503-create-your-first-docker-container
+
+Build image with name
+	docker build -t <image_name> .
+
+Create container and get into it	
+	docker run --name <container_name> -it <container_id> bash 
+	Note: On exit container will stop. 
+
+Start existing container 
+	docker start <NameContainer>
+
+Stop existing container 
+	docker stop <NameContainer>
+
+To login to a container
+docker exec -it <mycontainer> bash
+
+Show all images
+	docker image ls
+Remove image
+	docker image rm <ImageName|ImageID>
+Show all containers
+	docker ps -a
+Remove container
+	docker container rm <ContainerName|ContainerID>
